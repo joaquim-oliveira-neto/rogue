@@ -7,3 +7,4 @@ seaborn
 wagon_tools
 black
 flake8
+jupyter_contrib_nbextensions
