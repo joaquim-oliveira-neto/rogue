@@ -2,7 +2,10 @@
 #          INSTALL & TEST
 # ----------------------------------
 install_requirements:
-	@pip install -r requirements.txt
+	@pip install -r requirements/requirements.txt
+
+install_dev_requirements:
+	@pip install -r requirements/dev.txt
 
 check_code:
 	@flake8 scripts/* rogue/*.py

@@ -1,0 +1,9 @@
+-r common.txt
+pylint
+ipdb
+jupyterlab
+matplotlib
+seaborn
+wagon_tools
+black
+flake8
