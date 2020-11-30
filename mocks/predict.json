@@ -1,0 +1,16 @@
+{
+    "userRatings": [
+        { "title": "Forest Gump (1994)", "movieId": 356, "rating": 5},
+        { "title": "Shawshank Redemption, The (1994)", "movieId": 318, "rating": 5},
+        { "title": "Pulp Fiction (1994)", "movieId": 296, "rating": 5},
+        { "title": "Silence of the Lambs, The (1991)", "movieId": 593, "rating": 5},
+        { "title": "Matrix, The (1999)", "movieId": 2571, "rating": 5},
+        { "title": "Star Wars: Episode IV - A New Hope (1977)", "movieId": 260, "rating": 5},
+        { "title": "Jurassic Park (1993)", "movieId": 480, "rating": 5},
+        { "title": "Schindler's List (1993)", "movieId": 527, "rating": 5},
+        { "title": "Braveheart (1995)", "movieId": 110, "rating": 5},
+        { "title": "Fight Club (1999)", "movieId": 2959, "rating": 5}
+    ]
+}
+
+
