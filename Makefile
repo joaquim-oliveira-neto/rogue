@@ -2,7 +2,7 @@
 #          INSTALL & TEST
 # ----------------------------------
 install_requirements:
-	@pip install -r requirements/requirements.txt
+	@pip install -r requirements.txt
 
 install_dev_requirements:
 	@pip install -r requirements/dev.txt
@@ -61,3 +61,10 @@ pypi_test:
 
 pypi:
 	@twine upload dist/* -u lologibus2
+
+# ----------------------------------
+#      USE API
+# ----------------------------------
+
+run_flask:
+    env FLASK_APP=app.py flask run
