@@ -68,3 +68,10 @@ pypi:
 
 run_flask:
     env FLASK_APP=app.py flask run
+
+# ----------------------------------
+#      STREAMLIT
+# ----------------------------------
+
+run_streamlit:
+    streamlit run app.py
