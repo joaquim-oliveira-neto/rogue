@@ -1,12 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-
-
 
 def get_most_rated_movies_df(ratings_df, top_number):
     most_rated_movies = ratings_df.movieId.value_counts().head(top_number).index
