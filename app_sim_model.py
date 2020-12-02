@@ -7,7 +7,7 @@ st.title('Rogue Inteligent Movie Recomendation Systems - Content Based')
 
 @st.cache(suppress_st_warning=True)
 def get_dfs():
-    df = pd.read_csv('raw_data/soup/soup.csv')
+    df = pd.read_csv('raw_data/sim-model/soup.csv')
     return df
 
 df = get_dfs()

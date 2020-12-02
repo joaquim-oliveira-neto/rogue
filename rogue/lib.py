@@ -6,6 +6,10 @@ import pandas as pd
 if __name__ == '__main__':
     print("Hello World")
 
+
+def get_users_ratings_df():
+    df = pd.read_csv('raw_data/streamlit-data/ratings_lite.csv')
+
 def make_user_ratings_df(movie_titles, ratings, users_ratings_df, zeros=True, std=True):
     number_of_movies = users_ratings_df.shape[1]
     if std:
@@ -53,7 +57,7 @@ def get_recommendations(df, user_movies, user_ratings):
     user_similarities_df = pd.DataFrame(
         user_similarities, index=df.index, columns=['similarity'])
 
-    similar_users = get_similar_users(user_similarities_df, 10)
+    similar_users = get_similar_users(user_similarities_df, 30)
 
     recommended_movies = get_movies_from_similar_users(
         df, similar_users, user_movies, not_seen=True)

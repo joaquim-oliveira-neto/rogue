@@ -4,14 +4,16 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
-from rogue.lib import get_recommendations
+from rogue.lib import get_recommendations, get_users_ratings_df
 
 st.title('Rogue Inteligent Movie Recomendation systems')
 
 
 @st.cache
 def get_users_ratings_df():
-    df = pd.read_csv('raw_data/streamlit-data/ratings_top_users_top.csv')
+    df = pd.read_csv('raw_data/streamlit-data/ratings_lite.csv')
+    df = df.pivot(
+        index='userId', columns='title', values='rating')
     return df
 
 df = get_users_ratings_df()
