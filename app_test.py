@@ -14,8 +14,7 @@ except ModuleNotFoundError:
 # working with sample data.
 import numpy as np
 import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
-from rogue.lib import get_recommendations
+from rogue.lib import get_recommendations, get_users_ratings_df
 from rogue.sim_model import SimModel
 
 # st.image('streamlit-images/Logo-ong.png', width=300)
@@ -24,8 +23,11 @@ from rogue.sim_model import SimModel
 
 @st.cache(suppress_st_warning=True)
 def get_dfs():
-    df_content = pd.read_csv('raw_data/soup/soup.csv')
-    df_rating = pd.read_csv('raw_data/streamlit-data/ratings_top_users_top.csv')
+    df_content = pd.read_csv('raw_data/sim-model/soup.csv')
+    df_rating = pd.read_csv('raw_data/streamlit-data/ratings_lite.csv')
+    df_rating = df_rating.pivot(
+        index='userId', columns='title', values='rating')
+
     return df_content , df_rating
 
 df_content , df_rating = get_dfs()
@@ -136,7 +138,6 @@ def page_rating(state):
     key = 0
     movid = 0
     user_ratings = []
-    cols1 = st.beta_columns(4)
     col = 0
     movies = []
 
@@ -196,6 +197,7 @@ def page_rating(state):
     #     movid += 1
 
     ######## JORGE 2 ########
+    cols1 = st.beta_columns(4)
     for movie in movies_to_rate:
         while col <= 3:
             with cols1[col]:

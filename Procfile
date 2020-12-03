@@ -1,1 +1,2 @@
-web: sh setup_sim_model.sh && streamlit run app_sim_model.py
+ web: sh setup.sh && echo ${GOOGLE_CREDENTIALS} > /app/google-credentials.json && streamlit run app.py
+

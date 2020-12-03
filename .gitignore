@@ -9,6 +9,10 @@ dist/
 groupama/data/base_pno.*
 .DS_Store
 .idea/
-/raw_data/
+/raw_data/ml-25m
+/raw_data/tmdb-api
+/raw_data/treated-db
+/raw_data/path.csv
+/raw_data/streamlit-data
 */__pycache__
 */*.pyc __pycache__
