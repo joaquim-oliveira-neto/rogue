@@ -33,7 +33,7 @@ def get_dfs():
 
     df_rating = df_rating.pivot(
         index='userId', columns='title', values='rating')
-
+    df_rating_c = pd.read_csv('raw_data/streamlit-data/ratings_lite_content.csv')
     return df_content , df_rating ,df_rating_c
 
 df_content , df_rating, df_rating_c = get_dfs()
@@ -42,6 +42,7 @@ df_content , df_rating, df_rating_c = get_dfs()
 def get_sim(soup):
     matrix = SimModel.create_matrix(soup)
     similarity = SimModel.get_similarity(matrix)
+
     return model
 
 def main():
@@ -73,7 +74,7 @@ def page_home(state):
 
 def page_content(state):
     st.image('streamlit-images/head-cont.png')
-    similarity = get_sim(df_content['soup2'])
+    matrix = get_sim(df_content['soup2'])
 
     filmnames = df_content['title'].values.tolist()
 

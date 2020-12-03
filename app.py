@@ -23,7 +23,6 @@ def get_dfs():
     BUCKET_NAME = 'rogue-data'
     BUCKET_PATH = f"gs://{BUCKET_NAME}/raw_data"
 
-
     # df_content = pd.read_csv('raw_data/streamlit-data/soup_lite.csv')
     # df_rating = pd.read_csv('raw_data/streamlit-data/ratings_lite.csv')
     # df_rating_c = pd.read_csv('raw_data/streamlit-data/ratings_lite_content.csv')
