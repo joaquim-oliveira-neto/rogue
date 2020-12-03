@@ -23,7 +23,7 @@ def get_dfs():
     # df_content = pd.read_csv('raw_data/sim-model/soup.csv')
     # df_rating = pd.read_csv('raw_data/streamlit-data/ratings_lite.csv')
     client = storage.Client()
-    # df_content = pd.read_csv('raw_data/sim-model/soup.csv')
+    df_content = pd.read_csv(f'{BUCKET_PATH}/soup.csv')
     df_rating = pd.read_csv(f'{BUCKET_PATH}/ratings_lite.csv')
     df_rating = df_rating.pivot(
         index='userId', columns='title', values='rating')
