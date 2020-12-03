@@ -17,7 +17,7 @@ from rogue.sim_model import SimModel
 
 @st.cache(suppress_st_warning=True)
 def get_dfs():
-    df_content = pd.read_csv('raw_data/sim-model/soup.csv')
+    df_content = pd.read_csv('raw_data/soup/soup.csv')
     df_rating = pd.read_csv('raw_data/streamlit-data/ratings_lite.csv')
     df_rating = df_rating.pivot(
         index='userId', columns='title', values='rating')
