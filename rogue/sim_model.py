@@ -40,7 +40,7 @@ class SimModel():
         sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
         # Get the scores of the X most similar movies (position 0 will be the selected movie)
-        sim_scores = sim_scores[0:30]
+        sim_scores = sim_scores[0:20]
 
         # Get the movie indices
         movie_indices = [i[0] for i in sim_scores]
