@@ -57,7 +57,7 @@ def get_recommendations(df, user_movies, user_ratings):
     user_similarities_df = pd.DataFrame(
         user_similarities, index=df.index, columns=['similarity'])
 
-    similar_users = get_similar_users(user_similarities_df, 30)
+    similar_users = get_similar_users(user_similarities_df, 1000)
 
     recommended_movies = get_movies_from_similar_users(
         df, similar_users, user_movies, not_seen=True)

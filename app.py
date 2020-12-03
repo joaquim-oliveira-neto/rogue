@@ -163,7 +163,7 @@ def page_rating(state):
     @st.cache(suppress_st_warning=True)
     def get_random_subset(df_content):
         random_df = df_content.sort_values(
-            by='total_ratings', ascending=False)[0:50]
+            by='popularity', ascending=False)[0:1000]
         random_df = random_df.sample(10)
         return random_df
 
