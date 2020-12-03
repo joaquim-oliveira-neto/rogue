@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit.hashing import _CodeHasher
+from google.cloud import storage
 
 try:
     # Before Streamlit 0.65
@@ -17,8 +18,13 @@ from rogue.sim_model import SimModel
 
 @st.cache(suppress_st_warning=True)
 def get_dfs():
+    BUCKET_NAME = 'rogue-data'
+    BUCKET_PATH = f"gs: //{BUCKET_NAME}/raw_data"
+    # df_content = pd.read_csv('raw_data/sim-model/soup.csv')
+    # df_rating = pd.read_csv('raw_data/streamlit-data/ratings_lite.csv')
+    client = storage.Client()
     df_content = pd.read_csv('raw_data/sim-model/soup.csv')
-    df_rating = pd.read_csv('raw_data/streamlit-data/ratings_lite.csv')
+    df_rating = pd.read_csv(f'{BUCKET_PATH}/ratings_lite.csv')
     df_rating = df_rating.pivot(
         index='userId', columns='title', values='rating')
 
