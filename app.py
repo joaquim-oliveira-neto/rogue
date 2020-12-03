@@ -45,7 +45,7 @@ df_content, df_rating, df_rating_c = get_dfs()
 def get_sim(soup):
     matrix = SimModel.create_matrix(soup)
     similarity = SimModel.get_similarity(matrix)
-    return model
+    return similarity
 
 
 def main():
