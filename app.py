@@ -244,7 +244,7 @@ def page_rating(state):
 
         my_bar = st.progress(0)
         for percent_complete in range(100):
-            time.sleep(0.1)
+            time.sleep(0.02)
             my_bar.progress(percent_complete + 1)
         recommended_movies = get_recommendations(
             df_rating, movies_to_rate, user_ratings)

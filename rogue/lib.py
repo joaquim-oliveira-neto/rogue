@@ -31,12 +31,16 @@ def make_user_ratings_df(movie_titles, ratings, users_ratings_df, zeros=True, st
 def get_similar_users(user_similarities_df, number_of_similar_users):
     return user_similarities_df.sort_values(by='similarity', ascending=False).head(number_of_similar_users).index
 
-def get_movies_from_similar_users(users_ratings_df, similar_users, user_rated_movies, not_seen=True):
+
+def get_movies_from_similar_users(users_ratings_df, similar_users, user_rated_movies, min_num_of_similar_movies, not_seen=True):
     if not_seen:
         movies_from_similar_users = users_ratings_df.loc[similar_users].drop(
             columns=user_rated_movies)
     else:
         movies_from_similar_users = users_ratings_df.loc[similar_users]
+
+    movies_from_similar_users = movies_from_similar_users.loc[:,
+     (~movies_from_similar_users.isnull()).sum() >= min_num_of_similar_movies]
 
     movies_from_similar_users =  movies_from_similar_users.mean(
         axis=0, skipna=True).sort_values(ascending=False)
@@ -60,7 +64,7 @@ def get_recommendations(df, user_movies, user_ratings):
     similar_users = get_similar_users(user_similarities_df, 1000)
 
     recommended_movies = get_movies_from_similar_users(
-        df, similar_users, user_movies, not_seen=True)
+        df, similar_users, user_movies, 0, not_seen=True)
 
     return recommended_movies
 
